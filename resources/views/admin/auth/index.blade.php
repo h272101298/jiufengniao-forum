@@ -85,8 +85,9 @@
                         var json=eval(data);
                         if (json.code == 200){
                             layer.msg('删除成功',{icon: 1,time:1000},function () {
-                                window.location.href;
-                            })
+                                location.reload();
+                            });
+
                         }
                         if (json.code == 401){
                             layer.msg('删除失败',{icon: 2,time: 1000},function () {

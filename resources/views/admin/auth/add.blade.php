@@ -102,7 +102,7 @@
                 submitHandler:function(form){
                     $(form).ajaxSubmit({
                         type: 'post',
-                        url: "{{route('auth/addData')}}" ,
+                        url: "{{route('auth/addAuthData')}}" ,
                         datatype:'json',
                         success: function(data){
                             var json=eval(data);
