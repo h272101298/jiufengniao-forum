@@ -21,6 +21,7 @@ class PublicController extends Controller
         $password=$post->password;
         //验证登陆
         $check=Auth::guard('admin')->attempt(['username'=>$username,'password'=>$password],false);
+
         if ($check){
             return response()->json([
                 'msg'=>'ok',
