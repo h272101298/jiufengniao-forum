@@ -21,8 +21,14 @@ class PublicController extends Controller
         $password=$post->password;
         //验证登陆
         $check=Auth::guard('admin')->attempt(['username'=>$username,'password'=>$password],false);
-
+        dd(Auth::guard('admin')->id());
         if ($check){
+            //生成新的token值
+            $token=createNonceStr(8);
+
+            //保存token和userid到reids
+            setRedisData($token,Auth::id());
+
             return response()->json([
                 'msg'=>'ok',
                 'code'=>200

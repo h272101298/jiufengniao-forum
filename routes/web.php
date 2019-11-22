@@ -32,4 +32,14 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('addRole','Admin\RoleController@addRole')->name('role/add');
     Route::post('addRoleData','Admin\RoleController@addData')->name('role/addRoleData');
 
+    //前端用户
+    Route::get('BetUser/list','Admin\BetUserController@listBetUser')->name('bet/user');
+    Route::post('BetUser/add','Admin\BetUserController@addBetUser');
+    Route::get('BetUser/get','Admin\BetUserController@getBetUser');
+    Route::post('BetUser/edit','Admin\BetUserController@editBetUser');
+
+    //排名
+    Route::get('Ranking/list','Admin\RankingController@list');
+    Route::post('Ranking/add','Admin\RankingController@add');
+
 });

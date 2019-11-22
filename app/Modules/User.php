@@ -10,10 +10,12 @@ namespace App\Modules;
 
 
 use App\Modules\Auth\AuthHandle;
+use App\Modules\BetUser\BetUserHandle;
 use App\Modules\Role\RoleHandle;
 
 class User
 {
     use AuthHandle;
     use RoleHandle;
+    use BetUserHandle;
 }
