@@ -21,7 +21,8 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('index','Admin\IndexController@index')->name('index');
     Route::get('welcome','Admin\IndexController@welcome')->name('welcome');
     //管理员管理
-    Route::get('manager','Admin\ManagerController@index')->name('manager/index');
+    Route::get('manager/list','Admin\ManagerController@index')->name('manager/index');//管理员列表
+    Route::post('manager/add','Admin\ManagerController@addManager');
     //用户权限管理
     Route::get('auth','Admin\AuthController@index')->name('auth/index');
     Route::get('addAuth','Admin\AuthController@add')->name('auth/add');
@@ -33,13 +34,25 @@ Route::group(['prefix'=>'admin'],function (){
     Route::post('addRoleData','Admin\RoleController@addData')->name('role/addRoleData');
 
     //前端用户
-    Route::get('BetUser/list','Admin\BetUserController@listBetUser')->name('bet/user');
-    Route::post('BetUser/add','Admin\BetUserController@addBetUser');
-    Route::get('BetUser/get','Admin\BetUserController@getBetUser');
-    Route::post('BetUser/edit','Admin\BetUserController@editBetUser');
+    Route::get('betUser/list','Admin\BetUserController@listBetUser')->name('bet/user');//用户列表
+    Route::post('betUser/add','Admin\BetUserController@addBetUser');//添加用户
+    Route::get('betUser/get','Admin\BetUserController@getBetUser');//获取指定用户
+    Route::post('betUser/edit','Admin\BetUserController@editBetUser');//修改用户信息
+    Route::post('betUser/resetPossword','Admin\BetUserController@resetPossword');//重设密码
+    Route::post('betUser/setIntegral','Admin\BetUserController@setIntegral');//充值积分
+    Route::get('beetUser/intDetails','Admin\BetUserController@intDetails');//积分明细
 
     //排名
-    Route::get('Ranking/list','Admin\RankingController@list');
-    Route::post('Ranking/add','Admin\RankingController@add');
+    Route::get('ranking/list','Admin\RankingController@listRanking');//排名列表
+    Route::post('ranking/add','Admin\RankingController@addRanking');//添加排名
+    Route::get('ranking/get','Admin\RankingController@getRanking');//获取指定排名
+    Route::post('ranking/edit','Admin\RankingController@editRanking');//修改排名
+
+    //开奖结果
+    Route::get('results/list','Admin\ResultsController@listResults');//开奖结果列表
+    Route::get('results/add','Admin\ResultsController@addResults');//添加开奖结果
+
+    //下注列表
+    Route::get('record/list','Admin\RecordController@listRecord');//下注列表
 
 });

@@ -18,7 +18,7 @@ class CreateBetUserTable extends Migration
             $table->string('account')->comment('登录账户');
             $table->string('username')->comment('用户名');
             $table->string('password')->comment('登陆密码');
-            $table->float('cur_integral',4)->comment('当前积分');
+            $table->float('cur_integral',20,2)->default('0.00')->comment('当前积分');
             $table->tinyInteger('status')->default('0')->comment('用户状态:1为开启,0为关闭');
             $table->timestamps();
         });

@@ -19,19 +19,23 @@ class PublicController extends Controller
     public function check(LoginPost $post){
         $username=$post->username;
         $password=$post->password;
+        $auth=Auth::guard('admin');
         //验证登陆
-        $check=Auth::guard('admin')->attempt(['username'=>$username,'password'=>$password],false);
-        dd(Auth::guard('admin')->id());
+        $check=$auth->attempt(['username'=>$username,'password'=>$password],false);
         if ($check){
             //生成新的token值
             $token=createNonceStr(8);
-
             //保存token和userid到reids
-            setRedisData($token,Auth::id());
-
+            setRedisData('token',$token);
+            setRedisData('user_id',Auth::guard('admin')->id());
             return response()->json([
                 'msg'=>'ok',
-                'code'=>200
+                'code'=>200,
+                'data'=>[
+                    'token'=>$token,
+                    'user_id'=>$auth->id(),
+                    'user_name'=>$auth->user()->username
+                ]
             ]);
         }else{
             return response()->json([

@@ -16,7 +16,8 @@ class CreateIntDetailsTable extends Migration
         Schema::create('int_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userid')->comment('用户id');
-            $table->string('value')->comment('值');
+            $table->string('value',255)->comment('值');
+            $table->tinyInteger('mode',4)->comment('0:下注,1:充值');
             $table->timestamps();
         });
     }

@@ -52,3 +52,10 @@ if (!function_exists('getRedisData')){
         return $data;
     }
 }
+
+if (!function_exists('getDatetime')){
+    function getDatetime($time){
+        $date=date('Y-m-d H:i:s',$time);
+        return $date;
+    }
+}

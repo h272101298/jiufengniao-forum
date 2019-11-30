@@ -17,6 +17,7 @@ class CreateRankingTable extends Migration
             $table->increments('id');
             $table->string('rank_name')->comment('名次');
             $table->integer('pid')->comment('父级名次');
+            $table->integer('level')->comment('等级');
             $table->timestamps();
         });
     }
