@@ -51,15 +51,31 @@ trait ResultsHandle
             }else{
                 return false;
             }
-
         }
-
-
     }
 
     public function listResults($page,$limit){
         $data=DB::table('results')->limit($limit)->offset(($page-1)*$limit)->orderBy('preDrawTime')->get()->toArray();
         return $data;
+    }
+    public function getResults(){
+        $data=DB::table('results')->orderBy('preDrawTime','desc')->first();
+        return $data;
+    }
+
+    public function countResults($issue){
+        $record=DB::table('bet_record')->where('preDrawIssue',$issue)->where('status',0)->get();
+        //查询下单的排名
+        foreach ($record as $key=>$value){
+            $rank=$this->countRanking($value->rankid);
+        }
+        //计算排名是否中奖
+        //计算积分情况
+
+    }
+
+    public function countRanking($rankid){
+            $rank=DB::table('ranking')->where('id',$rankid)->first();
     }
 
 }

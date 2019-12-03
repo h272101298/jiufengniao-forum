@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::options('{all}',function (){return jsonResponse(['msg'=>'ok']);})->middleware('cross');
 
-
-Route::group(['prefix'=>'admin'],function (){
+Route::group(['prefix'=>'admin','middleware'=>'cross'],function (){
     //后台登陆
     Route::get('login',"Admin\PublicController@login")->name('login');
     //验证登陆

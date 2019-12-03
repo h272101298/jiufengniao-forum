@@ -45,6 +45,11 @@ return [
             'driver'=>'session',
             'provider'=>'admins',
         ],
+        //前台用户
+        'bet'=>[
+            'driver'=>'session',
+            'provider'=>'bet'
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -77,6 +82,10 @@ return [
         'admins'=>[
             'driver'=>'eloquent',
             'model'=>App\Modules\Users\Model\Users::class
+        ],
+        'bet'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Modules\BetUser\Model\BetUser::class
         ]
 
         // 'users' => [
