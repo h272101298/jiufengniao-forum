@@ -20,6 +20,7 @@ class CrossDomain
         $response = $next($request);
 
         if (in_array($request->header('Origin'),$allowOrigin)){
+            dd(211);
             $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
             $response->header('Access-Control-Allow-Headers', 'Origin, Access-Control-Request-Headers, SERVER_NAME, Access-Control-Allow-Headers, cache-control, token, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, X-XSRF-TOKEN');
             $response->header('Access-Control-Allow-Methods', 'OPTIONS,GET, POST, PATCH, PUT, DELETE');
