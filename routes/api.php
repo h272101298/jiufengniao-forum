@@ -23,6 +23,7 @@ Route::group(['prefix'=>'web','middleware'=>'cross'],function (){
     Route::get('getRanking','Web\RankingController@getRanking');//获取排名信息
     Route::get('listResults','Web\ResultsController@listResults');//获取历史开奖结果
     Route::get('getResults','Web\ResultsController@getResults');//获取最新的已开奖结果
+    Route::get('getInt','Web\PublicController@intDetails');//获取用户积分
     Route::post('countResults','Web\ResultsController@countResults');//计算开奖结果
 
 });

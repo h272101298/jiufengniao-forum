@@ -8,6 +8,7 @@ use App\Modules\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redis;
 
 class PublicController extends Controller
@@ -61,6 +62,17 @@ class PublicController extends Controller
         return response()->json([
             'msg'=>'ok',
             'code'=>200
+        ]);
+    }
+
+    public function intDetails(){
+        $id=Input::get('id',getRedisData('user_id'));
+        $page=Input::get('page',1);
+        $limit=Input::get('limit',10);
+        $data=$this->handle->intDetails($id,$page,$limit);
+        return response()->json([
+            'msg'=>'ok',
+            'data'=>$data
         ]);
     }
 }
