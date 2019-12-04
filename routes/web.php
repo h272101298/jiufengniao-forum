@@ -12,7 +12,7 @@
 */
 //Route::options('{all}',function (){return response()->json(['msg'=>'ok']);})->middleware('cross');
 
-Route::group(['prefix'=>'admin','middleware'=>'cross'],function (){
+Route::group(['prefix'=>'admin','middleware'=>['cross']],function (){
     //后台登陆
     Route::get('login',"Admin\PublicController@login")->name('login');
     //验证登陆
