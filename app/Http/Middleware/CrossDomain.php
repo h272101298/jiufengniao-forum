@@ -26,7 +26,7 @@ class CrossDomain
             $response->header('Access-Control-Allow-Methods', 'OPTIONS,GET, POST, PATCH, PUT, DELETE');
             $response->header('Access-Control-Allow-Credentials', 'true');
         }
-        dd($response);
+
         return $response;
     }
 }
