@@ -16,7 +16,7 @@ Route::group(['prefix'=>'admin','middleware'=>'cross'],function (){
     //后台登陆
     Route::get('login',"Admin\PublicController@login")->name('login');
     //验证登陆
-    Route::post('checkLogin','Admin\PublicController@check')->name('check');
+    Route::get('checkLogin','Admin\PublicController@check')->name('check');
     //后台首页
     Route::get('index','Admin\IndexController@index')->name('index');
     Route::get('welcome','Admin\IndexController@welcome')->name('welcome');
