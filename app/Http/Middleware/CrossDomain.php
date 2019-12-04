@@ -17,7 +17,7 @@ class CrossDomain
     {
         $allowOrigin = config('allow');
         $response = $next($request);
-
+        dd(in_array($request->header('Origin'),$allowOrigin));
         if (in_array($request->header('Origin'),$allowOrigin)){
 
             $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
