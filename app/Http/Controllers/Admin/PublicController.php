@@ -19,6 +19,7 @@ class PublicController extends Controller
     public function check(LoginPost $post){
         $username=$post->username;
         $password=$post->password;
+        dd(bcrypt($password));
         $auth=Auth::guard('admin');
         //验证登陆
         $check=$auth->attempt(['username'=>$username,'password'=>$password],false);
