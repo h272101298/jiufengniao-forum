@@ -16,11 +16,11 @@ class CrossDomain
     public function handle($request, Closure $next)
     {
         $allowOrigin = config('allow');
+
         //dd($allowOrigin);
         $response = $next($request);
-
+        dd(in_array($request->header('Origin'),$allowOrigin));
         if (in_array($request->header('Origin'),$allowOrigin)){
-
             if($request->getMethod() === 'OPTIONS'){
                 $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
 //            $response->header('Access-Control-Allow-Origin', '*');
