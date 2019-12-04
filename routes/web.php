@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::options('{all}',function (){return jsonResponse(['msg'=>'ok']);})->middleware('cross');
+Route::options('{all}',function (){return response()->json(['msg'=>'ok']);})->middleware('cross');
 
 Route::group(['prefix'=>'admin','middleware'=>'cross'],function (){
     //后台登陆
