@@ -16,7 +16,11 @@ class CrossDomain
     public function handle($request, Closure $next)
     {
         $allowOrigin = config('allow');
+        //dd($allowOrigin);
+        var_dump($allowOrigin);
         $response = $next($request);
+        dd($request);
+        dd($response);
         if (in_array($request->header('Origin'),$allowOrigin)){
             $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
             $response->header('Access-Control-Allow-Headers', 'Origin, Access-Control-Request-Headers, SERVER_NAME, Access-Control-Allow-Headers, cache-control, token, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, X-XSRF-TOKEN');
