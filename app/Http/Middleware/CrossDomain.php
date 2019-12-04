@@ -16,6 +16,7 @@ class CrossDomain
     public function handle($request, Closure $next)
     {
         $allowOrigin = config('allow');
+        dd($allowOrigin);
         $response = $next($request);
         dd(in_array($request->header('Origin'),$allowOrigin));
         if (in_array($request->header('Origin'),$allowOrigin)){
