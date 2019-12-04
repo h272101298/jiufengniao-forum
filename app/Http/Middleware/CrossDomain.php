@@ -16,26 +16,16 @@ class CrossDomain
     public function handle($request, Closure $next)
     {
         $allowOrigin = config('allow');
-
-        //dd($allowOrigin);
         $response = $next($request);
-        //dd($request->header('Origin'));
-        if (in_array($request->header('Origin'),$allowOrigin)){
-            if($request->getMethod() === 'OPTIONS'){
-                $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
-//            $response->header('Access-Control-Allow-Origin', '*');
-                $response->header('Access-Control-Allow-Headers', 'Origin, Access-Control-Request-Headers, SERVER_NAME, Access-Control-Allow-Headers, cache-control, token, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, X-XSRF-TOKEN');
-                $response->header('Access-Control-Allow-Methods', 'OPTIONS,GET, POST, PATCH, PUT, DELETE');
-                $response->header('Access-Control-Allow-Credentials', 'true');
-            }else{
-//            $response->header('Access-Control-Allow-Origin', '*');
-                $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
-                $response->header('Access-Control-Allow-Headers', 'Origin, Access-Control-Request-Headers, SERVER_NAME, Access-Control-Allow-Headers, cache-control, token, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, X-XSRF-TOKEN');
-                $response->header('Access-Control-Allow-Methods', 'OPTIONS,GET, POST, PATCH, PUT, DELETE');
-                $response->header('Access-Control-Allow-Credentials', 'true');
-            }
-        }
 
+        if (in_array($request->header('Origin'),$allowOrigin)){
+
+            $response->header('Access-Control-Allow-Origin', $request->header('Origin'));
+            $response->header('Access-Control-Allow-Headers', 'Origin, Access-Control-Request-Headers, SERVER_NAME, Access-Control-Allow-Headers, cache-control, token, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, X-XSRF-TOKEN');
+            $response->header('Access-Control-Allow-Methods', 'OPTIONS,GET, POST, PATCH, PUT, DELETE');
+            $response->header('Access-Control-Allow-Credentials', 'true');
+        }
+        dd($response);
         return $response;
     }
 }
