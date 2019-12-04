@@ -37,7 +37,7 @@ class CreateResultsTable extends Migration
             $table->tinyInteger('fourthDT')->nullable($value = true)->comment('龙虎4');
             $table->tinyInteger('fifthDT')->nullable($value = true)->comment('龙虎5');
             $table->tinyInteger('groupCode');
-            $table->timestamp('drawTime')->comment('下期开奖时间');
+            $table->dateTime('drawTime')->comment('下期开奖时间');
             $table->string('drawIssue')->comment('下期期数');
             $table->timestamps();
         });
