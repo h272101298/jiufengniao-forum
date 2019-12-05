@@ -71,7 +71,7 @@ trait ResultsHandle
         }
         //计算排名是否中奖
         //计算积分情况
-
+        https://ting.fengniaotuangou.cn/admin/manager/add
     }
 
     public function countRanking($rankid){

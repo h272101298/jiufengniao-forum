@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::options('{all}',function (){return jsonResponse(['msg'=>'ok']);})->middleware('cross');
+//Route::options('{all}',function (){return jsonResponse(['msg'=>'ok']);})->middleware('cross');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -25,6 +25,7 @@ Route::group(['prefix'=>'web','middleware'=>'cross'],function (){
     Route::get('getResults','Web\ResultsController@getResults');//获取最新的已开奖结果
     Route::get('getInt','Web\PublicController@intDetails');//获取用户积分
     Route::post('record','Web\RecordController@betRecord');//下注
+    Route::post('resetRecord','Web\RecordController@resetRecord');
     Route::post('countResults','Web\ResultsController@countResults');//计算开奖结果
 
 });

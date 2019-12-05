@@ -40,7 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>['cross']],function (){
     Route::post('betUser/edit','Admin\BetUserController@editBetUser');//修改用户信息
     Route::post('betUser/resetPossword','Admin\BetUserController@resetPossword');//重设密码
     Route::post('betUser/setIntegral','Admin\BetUserController@setIntegral');//充值积分
-    Route::get('beetUser/intDetails','Admin\BetUserController@intDetails');//积分明细
+    Route::get('betUser/intDetails','Admin\BetUserController@intDetails');//积分明细
 
     //排名
     Route::get('ranking/list','Admin\RankingController@listRanking');//排名列表

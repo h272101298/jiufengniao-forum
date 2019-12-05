@@ -69,7 +69,7 @@ trait BetUserHandle
     public function intDetails($userid,$page,$limit){
         $details=DB::table('int_details');
         if ($userid){
-            $details->where('userid',$userid);
+            $details->where('user_id',$userid);
         }
         $data=$details->limit($limit)->offset(($page-1)*$limit)->orderBy('created_at')->get();
         return $data;
