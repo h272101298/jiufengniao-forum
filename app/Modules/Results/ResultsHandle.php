@@ -47,6 +47,9 @@ trait ResultsHandle
                 ];
                 //dd($data);
                 $res=DB::table('results')->insert($data);
+                if ($res){
+                    $this->countResults($data['preDrawIssue']);
+                }
                 return $res;
             }else{
                 return false;

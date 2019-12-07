@@ -27,5 +27,8 @@ Route::group(['prefix'=>'web','middleware'=>'cross'],function (){
     Route::post('record','Web\RecordController@betRecord');//下注
     Route::post('resetRecord','Web\RecordController@resetRecord');
     Route::post('countResults','Web\ResultsController@countResults');//计算开奖结果
+    Route::get('addResults','Web\ResultsController@addResults');//新增开奖结果
+    Route::get('resetPassword','Web\PublicController@resetPassword');//重设密码
+
 
 });

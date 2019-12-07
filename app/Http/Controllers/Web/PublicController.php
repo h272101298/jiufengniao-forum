@@ -75,4 +75,21 @@ class PublicController extends Controller
             'data'=>$data
         ]);
     }
+    public function resetPossword(){
+        $id=Input::get('id');
+        $possword=Input::get('password');
+        $res=$this->handle->resetPassword($id,$possword);
+        if ($res){
+            return response()->json([
+                'msg'=>'ok',
+                'code'=>200
+            ]);
+        }else{
+            return response()->json([
+                'msg'=>'重置失败',
+                'code'=>400
+            ]);
+        }
+
+    }
 }

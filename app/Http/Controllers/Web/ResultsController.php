@@ -42,7 +42,19 @@ class ResultsController extends Controller
                 'code'=>200,
             ]);
         }
-
-
+    }
+    public function addResults(){
+        $res=$this->addResults();
+        if ($res){
+            return response()->json([
+                'msg'=>"ok",
+                'code'=>200
+            ]);
+        }else{
+            return response()->json([
+                'msg'=>"未到开奖时间,请耐心等待",
+                'code'=>400
+            ]);
+        }
     }
 }
