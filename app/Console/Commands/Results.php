@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-
+use App\Modules\Results\ResultsHandle;
 class Results extends Command
 {
     /**
@@ -75,7 +75,10 @@ class Results extends Command
                     'created_at' => getDatetime(time()),
                 ];
                 //dd($data);
-                DB::table('results')->insert($data);
+                $inster=DB::table('results')->insert($data);
+                if ($inster){
+                    countResults($data["preDrawIssue"]);
+                }
 
             }
         }
