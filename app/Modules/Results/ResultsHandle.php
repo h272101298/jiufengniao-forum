@@ -63,6 +63,7 @@ trait ResultsHandle
     }
     public function getResults(){
         $data=DB::table('results')->orderBy('preDrawTime','desc')->first();
+        $data->drawTimes=strtotime($data->drawTime);
         return $data;
     }
 
