@@ -75,11 +75,8 @@ class Results extends Command
                     'created_at'=>getDatetime(time()),
                 ];
                 //dd($data);
-                $res=DB::table('results')->insert($data);
-                return $res;
-            }else{
-                return 'false';
-            }
+                DB::table('results')->insert($data);
+
         }
     }
 }
