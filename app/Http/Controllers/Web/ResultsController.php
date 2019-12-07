@@ -35,7 +35,13 @@ class ResultsController extends Controller
 
     public function countResults(){
         $issue=Input::get('preDrawIssue');
-        $this->handle->countResults($issue);
+        $count=$this->handle->countResults($issue);
+        if (isset($count)){
+            return response()->json([
+                'msg'=>"ok",
+                'code'=>200,
+            ]);
+        }
 
 
     }
