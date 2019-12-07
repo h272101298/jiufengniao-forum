@@ -54,7 +54,7 @@ class RankingController extends Controller
     public function editRanking(){
         $data=[
             'id'=>Input::get('id'),
-            'rankname'=>Input::get('rankname'),
+            'rank_name'=>Input::get('rankname'),
             'level'=>Input::get('level'),
             'pid'=>Input::get('pid',0)
         ];
