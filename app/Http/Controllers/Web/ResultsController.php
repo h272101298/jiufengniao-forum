@@ -44,7 +44,7 @@ class ResultsController extends Controller
         }
     }
     public function addResults(){
-        $res=$this->addResults();
+        $res=$this->handle->addResults();
         if ($res){
             return response()->json([
                 'msg'=>"ok",
