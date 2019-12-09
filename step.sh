@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-while true; do
-  SCRIPT   /use/bin/php /home/www/forum/artisan schedule:run
-  sleep 5
+step=5 #间隔的秒数
+
+for (( i = 0; i < 60; i=(i+step) )); do
+    /use/bin/php /home/www/forum/artisan schedule:run
+    sleep $step
 done
+
+exit 0
