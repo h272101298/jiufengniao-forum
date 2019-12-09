@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use App\Modules\Results\ResultsHandle;
+use Illuminate\Support\Facades\Log;
+
 class Results extends Command
 {
     /**
@@ -41,6 +43,8 @@ class Results extends Command
         //
         $url = 'https://api.api861861.com/pks/getLotteryPksInfo.do?issue=&lotCode=10057';
         $results = file_get_contents($url);
+        $time=date('Y-m-d H:i:s',time());
+        Log::info($time."执行成功");
         if ($results) {
             $results = json_decode($results, true);
             $results = $results['result']['data'];
