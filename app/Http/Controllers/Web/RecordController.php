@@ -21,6 +21,7 @@ class RecordController extends Controller
         $issue=Input::get('drawIssue');
         $record=Input::get('record');
         $check=$this->handle->checkRecode($id,$issue);
+
         if (!$check){
             $res=$this->handle->addRecord($id,$issue,$record);
             if ($res){

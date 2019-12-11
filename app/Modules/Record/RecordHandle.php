@@ -63,7 +63,7 @@ trait RecordHandle
 
     }
     public function checkRecode($user_id,$preDrawIssue){
-        $check=DB::table('bet_record')->where('id',$user_id)->where('preDrawIssue',$preDrawIssue)->first();
+        $check=DB::table('bet_record')->where('userid',$user_id)->where('preDrawIssue',$preDrawIssue)->first();
         return $check;
 
     }
